@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.gmail.bukin26.mg.databinding.ActivityMainBinding
 import com.gmail.bukin26.mg.navigation.Router
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,8 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        binding =ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.bottomNavigation.setupWithNavController(binding.navHostFragment.findNavController())
     }
 
     override fun onResume() {
