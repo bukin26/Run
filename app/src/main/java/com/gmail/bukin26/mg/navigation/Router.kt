@@ -6,10 +6,11 @@ import androidx.annotation.IdRes
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import java.lang.ref.WeakReference
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class Router {
+class Router @Inject constructor() {
 
     private var navController: NavController? = null
     private var context: WeakReference<Context>? = null
@@ -22,20 +23,20 @@ class Router {
         navController?.navigate(navId)
     }
 
-     fun navigate(@IdRes navId: Int, args: Bundle) {
+    fun navigate(@IdRes navId: Int, args: Bundle) {
         navController?.navigate(navId, args)
     }
 
-     fun navigateUp() {
+    fun navigateUp() {
         navController?.navigateUp()
     }
 
-     fun attach(navController: NavController, context: Context) {
+    fun attach(navController: NavController, context: Context) {
         this.navController = navController
         this.context = WeakReference(context)
     }
 
-     fun detach() {
+    fun detach() {
         navController = null
     }
 }

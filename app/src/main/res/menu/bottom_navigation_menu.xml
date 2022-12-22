@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/newsFragment"
+        android:title="@string/news" />
+
+    <item
+        android:id="@+id/runFragment"
+        android:title="@string/run" />
+
+    <item
+        android:id="@+id/activityFragment"
+        android:title="@string/activity" />
+</menu>
