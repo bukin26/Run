@@ -11,5 +11,5 @@ interface NewsApi {
         @Query("category") category: String = "sports",
         @Query("language") language: String = "en",
         @Query("apiKey") apiKey: String = BuildConfig.API_KEY
-    )
+    ) : BaseResponse<NewsDTO>
 }
