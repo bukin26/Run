@@ -18,6 +18,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"6b2dc0e4a0dd40608c0709a239867120\"")
+        buildConfigField("String", "BASE_URL", "\"https://newsapi.org/v2\"")
     }
 
     buildTypes {
@@ -42,7 +45,6 @@ android {
 dependencies {
 
 
-
     implementation 'com.google.android.material:material:1.7.0'
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -63,4 +65,9 @@ dependencies {
 
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation('com.google.code.gson:gson:2.9.0')
+    implementation('com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5')
 }
