@@ -7,6 +7,10 @@ import javax.inject.Singleton
 @Singleton
 class NewsReducer @Inject constructor() : Reducer<NewsState, NewsAction> {
     override suspend fun invoke(state: NewsState, action: NewsAction): NewsState {
-        TODO("Not yet implemented")
+        return when (action) {
+            is NewsAction.LoadNews -> state.copy(isLoading = true)
+            is NewsAction.LoadingSuccess -> state.copy(isLoading = false, news = action.news)
+            is NewsAction.LoadingError -> state.copy(isLoading = false)
+        }
     }
 }

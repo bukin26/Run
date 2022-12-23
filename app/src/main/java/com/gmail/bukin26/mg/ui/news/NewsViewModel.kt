@@ -6,10 +6,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    reducer: NewsReducer
+    reducer: NewsReducer,
+    newsLoadUseCase: NewsLoadUseCase
 ) : MviViewModel<NewsAction, NewsState, NewsEffect>(
-    useCases = emptySet(),
+    useCases = setOf(newsLoadUseCase),
     reducer = reducer,
     initialState = NewsState.Empty
 ) {
+
+    init {
+        launch {
+            action(NewsAction.LoadNews)
+        }
+    }
 }
